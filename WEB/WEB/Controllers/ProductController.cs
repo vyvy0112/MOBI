@@ -20,7 +20,7 @@ namespace WEB.Controllers
 			_logger = logger;
 			
 		}
-		public IActionResult Index(int? page) //hiển thị danh sách sản phẩm
+		public IActionResult Index(int? page) //hiển thị danh sách sản phẩm phân trang
 		{
 			int pageSize = 12;
 			int pageNumber = page == null || page < 0 ? 1: page.Value;

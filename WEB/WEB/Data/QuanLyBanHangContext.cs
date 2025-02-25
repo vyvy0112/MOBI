@@ -43,7 +43,7 @@ public partial class QuanLyBanHangContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF2B45BF94");
+            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF2E2312E4");
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.Adrress).HasMaxLength(100);
@@ -56,39 +56,37 @@ public partial class QuanLyBanHangContext : DbContext
                 .HasDefaultValue("X? Lý");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.ProductName).HasMaxLength(100);
-            entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.UserId).HasColumnName("UserID");
             entity.Property(e => e.UserName).HasMaxLength(100);
 
             entity.HasOne(d => d.Product).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK__Orders__ProductI__44CA3770");
+                .HasConstraintName("FK__Orders__ProductI__681373AD");
 
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK__Orders__UserID__43D61337");
+                .HasConstraintName("FK__Orders__UserID__671F4F74");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.OrderDetailId).HasName("PK__OrderDet__D3B9D30C4D5DC329");
+            entity.HasKey(e => e.OrderDetailId).HasName("PK__OrderDet__D3B9D30CA99B826A");
 
             entity.Property(e => e.OrderDetailId).HasColumnName("OrderDetailID");
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
-            entity.Property(e => e.Total).HasComputedColumnSql("([Quantity]*[Price])", true);
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK__OrderDeta__Order__4E53A1AA");
+                .HasConstraintName("FK__OrderDeta__Order__6CD828CA");
 
             entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK__OrderDeta__Produ__4F47C5E3");
+                .HasConstraintName("FK__OrderDeta__Produ__6DCC4D03");
         });
 
         modelBuilder.Entity<Product>(entity =>

@@ -35,7 +35,7 @@
 											<p>RAM: @item.Ram</p>
 											<p>Pin: @item.Pin</p>
 											<p>Trọng Lượng: @item.Weight</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											<a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.ProductId" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
 
 									</div>
