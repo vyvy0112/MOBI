@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using WEB.Data;
 using WEB.ViewModels;
 using X.PagedList;
@@ -19,23 +20,32 @@ namespace WEB.Controllers
 			_logger = logger;
 			
 		}
-		public IActionResult Index(int? page)
+		public IActionResult Index(int? page) //hiển thị danh sách sản phẩm
 		{
 			int pageSize = 12;
 			int pageNumber = page == null || page < 0 ? 1: page.Value;
 			var listproducts = db.Products.AsNoTracking().OrderBy(x=>x.ProductName);
 			PagedList<Product> products = new PagedList<Product>(listproducts, pageNumber, pageSize);
+			if (products == null)
+			{
+				return NotFound();
+			}
 			return View(products);
 		}
 		
 
 
-		public IActionResult ProductbyCategory(int? id, int? page)
+		public IActionResult ProductbyCategory(int? id, int? page) //hiển thị sản phẩm theo loại 
 		{
+			if (id == null || !db.Categories.Any(c => c.CategoryId == id))
+			{
+				return NotFound("Không tìm thấy loại sản phẩm này");
+			}
 			int pageSize = 12;
 			int pageNumber = page == null || page < 0 ? 1 : page.Value;
 			var listproducts = db.Products.AsNoTracking().Where(x=>x.CategoryId==id).OrderBy(x => x.ProductName);
 			PagedList<Product> products = new PagedList<Product>(listproducts, pageNumber, pageSize);
+
 			return View(products);
 
 		}
@@ -54,7 +64,7 @@ namespace WEB.Controllers
 				return NotFound();
 			}
 
-				var model = new ProductVM()
+			var model = new ProductVM()
 				{
 					ProductId = product.ProductId,
 					ProductName = product.ProductName,
@@ -68,11 +78,31 @@ namespace WEB.Controllers
 					Ram = product.Ram,
 					Weight = product.Weight,
 					Pin = product.Pin,
-					CategoryName = product.Category?.CategoryName
+					CategoryName = product.Category?.CategoryName //lấy tên thương hiệu
 				};
 			
 	
 			return View(model);
+		}
+
+		public IActionResult Search(string? query)
+		{
+			var hanghoa = db.Products.AsQueryable();
+			if (query != null)
+			{
+				hanghoa = hanghoa.Where(p => p.ProductName.Contains(query));
+			}
+			var result = hanghoa.Select(p => new ProductViewModel
+			{
+				ProductId = p.ProductId,
+				ProductName = p.ProductName,
+				Price= p.Price,
+				Discount = p.Discount,
+				Image = p.Image,
+				ShortDescription = p.ShortDescription,
+				CategoryName = p.Category.CategoryName
+			});
+			return View(result);
 		}
 
 

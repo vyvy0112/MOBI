@@ -141,11 +141,20 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Search" />
+
+					<form asp-controller="Product" asp-action="Search">
+						<div class="col-sm-3">
+							<div class="search_box pull-right">
+								<input type="text" placeholder="Search" name="query"/>
+
+								@* 							 <button>
+								<span id="search-icon-1" class="input-group-text p-3"> <i class="fa fa-search"> </i> </span>
+								</button>
+								*@
+							</div>
 						</div>
-					</div>
+					</form>
+
 				</div>
 			</div>
 		</div><!--/header-bottom-->
