@@ -26,8 +26,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ASUS\Desktop\MOBI\WEB\WEB
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ASUS/Desktop/MOBI/WEB/WEB/Views/Cart/AddToCart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxBZGRUb0NhcnQuY3NodG1s
+[C:/Users/ASUS/Desktop/MOBI/WEB/WEB/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/Desktop/MOBI/WEB/WEB/Views/Home/Contact.cshtml]

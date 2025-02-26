@@ -20,6 +20,11 @@ namespace WEB.Controllers
 		public List<CartItem> Cart => HttpContext.Session.Get<List<CartItem>>(CART_KEY) ?? new List<CartItem>();
 			
 
+		public IActionResult Index()
+		{
+			return View(Cart);
+		}
+
 		public IActionResult AddToCart(int id, int quantity = 1)
 		{
 			var giohang = Cart; //từ danh sách cart hàng hóa
@@ -49,10 +54,10 @@ namespace WEB.Controllers
 			}
 			HttpContext.Session.Set(CART_KEY, giohang);
 
-			return View(Cart);
+			return RedirectToAction("Index");
 		}
 
-		public IActionResult RemoveCart(int id)
+		public IActionResult RemoveCart(int? id)
 		{
 			var giohang = Cart;
 			var item = giohang.SingleOrDefault(p => p.ProductId == id);
@@ -61,7 +66,53 @@ namespace WEB.Controllers
 				giohang.Remove(item);
 				HttpContext.Session.Set(CART_KEY, giohang);
 			}
-			return View(AddToCart);
+			return RedirectToAction("Index");
+		}
+
+		public IActionResult IncreaseCart(int? id)
+		{
+			var giohang = Cart;
+			var item = giohang.Where(x=>x.ProductId == id).FirstOrDefault();
+			if (item.Quantity > 1)
+			{
+				++item.Quantity;
+			}
+			else
+			{
+				giohang.RemoveAll(p=>p.ProductId == id);
+			}
+			if(giohang.Count == 0)
+			{
+				HttpContext.Session.Remove(CART_KEY);
+			}
+			else
+			{
+				HttpContext.Session.Set(CART_KEY, giohang);
+			}
+			return RedirectToAction("Index");
+		}
+
+		public IActionResult DecreaseCart(int? id)
+		{
+			var giohang = Cart;
+			var item = giohang.Where(x => x.ProductId == id).FirstOrDefault();
+			if (item.Quantity > 1)
+			{
+				--item.Quantity;
+			}
+			else
+			{
+				giohang.RemoveAll(p => p.ProductId == id);
+			}
+			if (giohang.Count == 0)
+			{
+				HttpContext.Session.Remove(CART_KEY);
+			}
+			else
+			{
+				HttpContext.Session.Set(CART_KEY, giohang);
+			}
+			return RedirectToAction("Index");
 		}
 	}
 }

@@ -75,7 +75,7 @@ namespace WEB.Controllers
 					Description = product.Description,
 					Image = product.Image,
 					ShortDescription = product.ShortDescription,
-					Ram = product.Ram,
+					Capacity = product.Capacity,
 					Weight = product.Weight,
 					Pin = product.Pin,
 					CategoryName = product.Category?.CategoryName //lấy tên thương hiệu

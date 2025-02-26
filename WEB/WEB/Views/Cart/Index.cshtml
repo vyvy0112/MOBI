@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model IEnumerable<WEB.ViewModels.CartItem>
+
+@{
+	ViewData["Title"] = "AddToCart";
+}
+
+
+
+<section id="cart_items">
+	<div class="container">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+				<li><a asp-controller="Home" asp-action="Index">  Home</a></p>
+				<li class="active">Shopping Cart</li>
+			</ol>
+		</div>
+		<div class="table-responsive cart_info">
+			<table class="table table-condensed">
+				<tbody>
+					@if (Model.Any())
+					{
+						@foreach (var item in Model)
+						{
+						<thead>
+							<tr class="cart_menu">
+								<td class="image">Sản Phẩm</td>
+								<td class="description"></td>
+								<td class="price">Giá</td>
+								<td class="quantity">Số Lượng</td>
+								<td class="total">Tổng Cộng</td>
+								<td></td>
+							</tr>
+						</thead>
+							<tr>
+								<td class="cart_product">
+									<a href=""><img src="~/image/@item.Image" alt="@item.ProductName" width="100" height="100"></a>
+								</td>
+								<td class="cart_description">
+									<p><a href="" style="color: black;">@item.ProductName</a></p>
+								</td>
+								<td class="cart_price">
+									<p>@item.Price VND</p>
+								</td>
+								<td class="cart_quantity">
+									<div class="cart_quantity_button">
+									<a class="cart_quantity_up" asp-controller="Cart" asp-action="IncreaseCart" asp-route-id="@item.ProductId"> + </a>
+										<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+									<a class="cart_quantity_down" asp-controller="Cart" asp-action="DecreaseCart" asp-route-id="@item.ProductId"> - </a>
+									</div>
+								</td>
+								<td class="cart_total">
+									<p class="cart_total_price">@item.TotalPrice</p>
+								</td>
+
+								<td class="cart_delete">
+									<a class="cart_quantity_delete" asp-controller="Cart" asp-action="RemoveCart" asp-route-id="@item.ProductId"><i class="fa fa-times"></i></a>
+								</td>
+							</tr>
+
+						}
+
+					}
+					else
+					{
+						<h4>Không có sản phẩm nào trong giỏ hàng</h4>
+					}
+
+				<a href="@Url.Action("Index", "Product")"> <h4>Quay lại trang sản phẩm </h4></a>
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+</section> <!--/#cart_items-->
+<section id="do_action">
+	<div class="container">
+		<div class="heading">
+			<h3>What would you like to do next?</h3>
+			<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="total_area">
+					<ul>
+						<li>Thành Tiền: <span>@Model.Sum(p => p.TotalPrice) VND</span></li>
+						<li>Eco Tax <span>$2</span></li>
+						<li>Shipping Cost <span>Free</span></li>
+						<li>Total <span>$61</span></li>
+					</ul>
+					<a class="btn btn-default update" href="">Update</a>
+					<a class="btn btn-default  ncheck_out" href="">Check Out</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!--/#do_action-->

@@ -94,13 +94,11 @@ public partial class QuanLyBanHangContext : DbContext
             entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6EDE514167D");
 
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
+            entity.Property(e => e.Capacity).HasMaxLength(100);
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.Image).HasMaxLength(100);
             entity.Property(e => e.Pin).HasMaxLength(100);
             entity.Property(e => e.ProductName).HasMaxLength(100);
-            entity.Property(e => e.Ram)
-                .HasMaxLength(100)
-                .HasColumnName("RAM");
             entity.Property(e => e.Weight).HasMaxLength(100);
 
             entity.HasOne(d => d.Category).WithMany(p => p.Products)

@@ -19,7 +19,7 @@
 
 		public string? ShortDescription { get; set; }
 
-		public string? Ram { get; set; }
+		public string? Capacity { get; set; }
 
 		public string? Weight { get; set; }
 
@@ -51,7 +51,7 @@
 
 		public string? ShortDescription { get; set; }
 
-		public string? Ram { get; set; }
+		public string? Capacity { get; set; }
 
 		public string? Weight { get; set; }
 

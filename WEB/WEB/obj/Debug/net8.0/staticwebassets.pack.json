@@ -77,12 +77,28 @@
       "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.woff"
     },
     {
-      "Id": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\wwwroot\\image\\Iphone11.jpg",
-      "PackagePath": "staticwebassets\\image\\Iphone11.jpg"
+      "Id": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\wwwroot\\image\\iphone11.jpg",
+      "PackagePath": "staticwebassets\\image\\iphone11.jpg"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\wwwroot\\image\\iphone12.jpg",
       "PackagePath": "staticwebassets\\image\\iphone12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\wwwroot\\image\\iphone13.jpg",
+      "PackagePath": "staticwebassets\\image\\iphone13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\wwwroot\\image\\iphone14.jpg",
+      "PackagePath": "staticwebassets\\image\\iphone14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\wwwroot\\image\\iphone16Pro.jpg",
+      "PackagePath": "staticwebassets\\image\\iphone16Pro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\wwwroot\\image\\iphoneX.jpg",
+      "PackagePath": "staticwebassets\\image\\iphoneX.jpg"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\wwwroot\\images\\404\\404.png",

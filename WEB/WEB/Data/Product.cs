@@ -23,7 +23,7 @@ public partial class Product
 
     public string? ShortDescription { get; set; }
 
-    public string? Ram { get; set; }
+    public string? Capacity { get; set; }
 
     public string? Weight { get; set; }
 
