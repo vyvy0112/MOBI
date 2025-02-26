@@ -29,7 +29,9 @@ public partial class Order
 
     public string? Note { get; set; }
 
-    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+    //public int TypePayment { get; set; }
+
+	public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
     public virtual Product? Product { get; set; }
 

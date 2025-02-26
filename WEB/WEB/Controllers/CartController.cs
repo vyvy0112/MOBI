@@ -71,48 +71,66 @@ namespace WEB.Controllers
 
 		public IActionResult IncreaseCart(int? id)
 		{
+			if(id == null)
+			{
+				return NotFound();
+			}
 			var giohang = Cart;
-			var item = giohang.Where(x=>x.ProductId == id).FirstOrDefault();
-			if (item.Quantity > 1)
+			var item = giohang.FirstOrDefault(x=>x.ProductId == id);
+			if (item != null)
 			{
-				++item.Quantity;
+				item.Quantity++;
 			}
 			else
 			{
-				giohang.RemoveAll(p=>p.ProductId == id);
+				var product = _context.Products.SingleOrDefault(p => p.ProductId == id); //lấy thông tin sản phẩm từ database
+
+				item = new CartItem
+				{
+					ProductId = product.ProductId,
+					ProductName = product.ProductName,
+					Price = product.Price,
+					Image = product.Image ?? string.Empty,
+					Quantity = 1,
+				};
+				giohang.Add(item);
 			}
-			if(giohang.Count == 0)
-			{
-				HttpContext.Session.Remove(CART_KEY);
-			}
-			else
-			{
-				HttpContext.Session.Set(CART_KEY, giohang);
-			}
+			HttpContext.Session.Set(CART_KEY, giohang);
 			return RedirectToAction("Index");
 		}
-
 		public IActionResult DecreaseCart(int? id)
 		{
-			var giohang = Cart;
-			var item = giohang.Where(x => x.ProductId == id).FirstOrDefault();
-			if (item.Quantity > 1)
+			if (id == null)
 			{
-				--item.Quantity;
+				return NotFound();
 			}
-			else
+
+			var giohang = Cart; 
+			var item = giohang.FirstOrDefault(x => x.ProductId == id);
+
+			if (item != null)
 			{
-				giohang.RemoveAll(p => p.ProductId == id);
+				if (item.Quantity > 1)
+				{
+					item.Quantity--; 
+				}
+				else
+				{
+					giohang.Remove(item); // nếu số lượng = 1 giảm xuống thêm nữa thì xóa sản phẩm khỏi giỏ hàng
+				}
 			}
-			if (giohang.Count == 0)
-			{
-				HttpContext.Session.Remove(CART_KEY);
-			}
-			else
-			{
-				HttpContext.Session.Set(CART_KEY, giohang);
-			}
-			return RedirectToAction("Index");
+
+			HttpContext.Session.Set(CART_KEY, giohang); // Save the updated cart back to the session
+			return RedirectToAction("Index"); // Redirect to the Index action
 		}
+
+
+		public IActionResult Checkout()
+		{
+			return View();
+		}
+
+
+
 	}
 }

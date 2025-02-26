@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WEB.ViewModels.CartItem>
+
+<div class="table-responsive cart_info">
+	<table class="table table-condensed">
+		<tbody>
+		<thead>
+			<tr class="cart_menu">
+				<td class="image">Sản Phẩm</td>
+				<td class="description"></td>
+				<td class="price">Giá</td>
+				<td class="quantity">Số Lượng</td>
+				<td class="total">Tổng Cộng</td>
+				<td></td>
+			</tr>
+		</thead>
+			@if (Model.Any())
+			{
+				@foreach (var item in Model)
+				{
+
+				<tr>
+					<td class="cart_product">
+						<a href=""><img src="~/image/@item.Image" alt="@item.ProductName" width="100" height="100"></a>
+					</td>
+					<td class="cart_description">
+						<p><a href="" style="color: black;">@item.ProductName</a></p>
+					</td>
+					<td class="cart_price">
+						<p>@item.Price VND</p>
+					</td>
+					<td class="cart_quantity">
+						<div class="cart_quantity_button">
+							<a class="cart_quantity_up" asp-controller="Cart" asp-action="DecreaseCart" asp-route-id="@item.ProductId" class="btn btn-sm btn-danger"> - </a>
+							<input class="cart_quantity_input" type="text" name="quantity" value="@item.Quantity" autocomplete="off" size="2">
+							<a class="cart_quantity_down" asp-controller="Cart" asp-action="IncreaseCart" asp-route-id="@item.ProductId" class="btn btn-sm btn-success"> + </a>
+						</div>
+					</td>
+					<td class="cart_total">
+						<p class="cart_total_price">@item.TotalPrice</p>
+					</td>
+
+					<td class="cart_delete">
+						<a class="cart_quantity_delete" asp-controller="Cart" asp-action="RemoveCart" asp-route-id="@item.ProductId"><i class="fa fa-times"></i></a>
+					</td>
+				</tr>
+
+				}
+				
+				
+
+			}
+			else
+			{
+			<h4>Không có sản phẩm nào trong giỏ hàng</h4>
+			}
+
+		<a href="@Url.Action("Index", "Product")"> <h4>Quay lại trang sản phẩm </h4></a>
+		</tbody>
+
+	</table>
+</div>
