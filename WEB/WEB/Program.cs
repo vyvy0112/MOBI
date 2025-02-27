@@ -1,6 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using WEB.Data;
 using WEB.Reponsitory;
+using WEB.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,14 +32,51 @@ builder.Services.AddDbContext<QuanLyBanHangContext>(options => options.UseSqlSer
 
 builder.Services.AddScoped<ICategotyProductRepository, CategoryProductReposity>();
 
+builder.Services.AddSession();
+
+
+
+
+
+
+//đăng ký
+builder.Services.AddIdentity<AppUserVM, IdentityRole>()
+	.AddEntityFrameworkStores<QuanLyBanHangContext>().AddDefaultTokenProviders();
+builder.Services.AddRazorPages();
+
+
+//builder.Configuration<IdentityOptions>(options =>
+//{
+//	// Password settings.
+//	options.Password.RequireDigit = true;
+//	options.Password.RequireLowercase = true;
+//	options.Password.RequireNonAlphanumeric = false;
+//	options.Password.RequireUppercase = false;
+//	options.Password.RequiredLength = 4;
+
+//	// User settings.
+//	options.User.RequireUniqueEmail = true;
+
+//	// Cấu hình đăng nhập.
+//	options.SignIn.RequireConfirmedAccount = false;
+//	options.SignIn.RequireConfirmedEmail = false;
+//	options.SignIn.RequireConfirmedPhoneNumber = false;
+//});
+
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+	// Password settings.
+	options.Password.RequireDigit = false;
+	options.Password.RequireLowercase = false;
+	options.Password.RequireNonAlphanumeric = false;
+	options.Password.RequireUppercase = false;
+	options.Password.RequiredLength = 4;
+
+	// User settings.
+	options.User.RequireUniqueEmail = false;
+});
 var app = builder.Build();
-
-
-//đăng ký session dành cho giỏ hàng
-//app.UseSession();
-
-
-
 
 
 
@@ -47,15 +88,25 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+
+
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseSession();
+
+
+
+app.UseAuthentication(); //phục hồi thông tin xác thực đăng nhập
 app.UseAuthorization();
+app.UseSession();//gio hang
+
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+

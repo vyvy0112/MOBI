@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WEB.ViewModels;
 
 namespace WEB.Data;
 
-public partial class QuanLyBanHangContext : DbContext
+public partial class QuanLyBanHangContext : IdentityDbContext<AppUserVM>
 {
     public QuanLyBanHangContext()
     {
@@ -106,7 +109,7 @@ public partial class QuanLyBanHangContext : DbContext
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("FK__Products__Catego__68487DD7");
         });
-
+        // gọi cấu hình identity
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCAC6FE504DD");
@@ -120,8 +123,19 @@ public partial class QuanLyBanHangContext : DbContext
             entity.Property(e => e.UserName).HasMaxLength(100);
         });
 
-        OnModelCreatingPartial(modelBuilder);
+		base.OnModelCreating(modelBuilder); // Gọi cấu hình mặc định của Identity
+
+		// Nếu bạn cần chỉnh sửa các bảng Identity, hãy làm như sau:
+		modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(l => new { l.LoginProvider, l.ProviderKey });
+		modelBuilder.Entity<IdentityUserRole<string>>().HasKey(r => new { r.UserId, r.RoleId });
+		modelBuilder.Entity<IdentityUserToken<string>>().HasKey(t => new { t.UserId, t.LoginProvider, t.Name });
+
+        /////
+		OnModelCreatingPartial(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+	
+	
 }

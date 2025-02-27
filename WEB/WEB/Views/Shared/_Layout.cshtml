@@ -91,11 +91,11 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+								<li><a asp-controller="Account" asp-action="Create"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a asp-controller="Cart" asp-action="Checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a asp-controller="Cart" asp-action="Index"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								<li><a><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a asp-controller="Account" asp-action="Index"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
@@ -126,7 +126,7 @@
 										<li><a href="product-details.html">Product Details</a></li>
 										<li><a href="checkout.html">Checkout</a></li>
 										<li><a asp-controller="Cart" asp-action="Index">Cart</a></li>
-										<li><a href="login.html">Login</a></li>
+										<li><a asp-controller="Account" asp-action="Register">Login</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
@@ -171,5 +171,7 @@
 	<script src="~/js/price-range.js"></script>
 	<script src="~/js/jquery.prettyPhoto.js"></script>
 	<script src="~/js/main.js"></script>
+
+	@await RenderSectionAsync("scripts", required: false)
 </body>
 </html>
