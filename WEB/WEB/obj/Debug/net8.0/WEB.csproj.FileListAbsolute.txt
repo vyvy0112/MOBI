@@ -578,3 +578,5 @@ C:\Users\ASUS\Desktop\MOBI\WEB\WEB\bin\Debug\net8.0\runtimes\win\lib\net7.0\Micr
 C:\Users\ASUS\Desktop\MOBI\WEB\WEB\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\ASUS\Desktop\MOBI\WEB\WEB\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ASUS\Desktop\MOBI\WEB\WEB\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\ASUS\Desktop\MOBI\WEB\WEB\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\ASUS\Desktop\MOBI\WEB\WEB\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

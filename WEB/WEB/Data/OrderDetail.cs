@@ -18,7 +18,7 @@ public partial class OrderDetail
     public double? Total { get; set; }
 
     public double? Discount { get; set; }
-    
+
     public virtual Order? Order { get; set; }
 
     public virtual Product? Product { get; set; }

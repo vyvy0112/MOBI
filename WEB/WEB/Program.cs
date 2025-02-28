@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,8 +33,15 @@ builder.Services.AddDbContext<QuanLyBanHangContext>(options => options.UseSqlSer
 
 builder.Services.AddScoped<ICategotyProductRepository, CategoryProductReposity>();
 
-builder.Services.AddSession();
 
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile)); //dang ky
+
+builder.Services.AddAuthentication
+	(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+	{
+		options.LoginPath = "Account/Login";
+		options.AccessDeniedPath = "/AccessDenied"; //đăng nhập mà chưa có quyền chuyển hướng đến
+	});
 
 
 
@@ -45,36 +53,20 @@ builder.Services.AddIdentity<AppUserVM, IdentityRole>()
 builder.Services.AddRazorPages();
 
 
-//builder.Configuration<IdentityOptions>(options =>
-//{
-//	// Password settings.
-//	options.Password.RequireDigit = true;
-//	options.Password.RequireLowercase = true;
-//	options.Password.RequireNonAlphanumeric = false;
-//	options.Password.RequireUppercase = false;
-//	options.Password.RequiredLength = 4;
-
-//	// User settings.
-//	options.User.RequireUniqueEmail = true;
-
-//	// Cấu hình đăng nhập.
-//	options.SignIn.RequireConfirmedAccount = false;
-//	options.SignIn.RequireConfirmedEmail = false;
-//	options.SignIn.RequireConfirmedPhoneNumber = false;
-//});
-
-
 builder.Services.Configure<IdentityOptions>(options =>
 {
 	// Password settings.
-	options.Password.RequireDigit = false;
-	options.Password.RequireLowercase = false;
+	options.Password.RequireDigit = true;
+	options.Password.RequireLowercase = true;
 	options.Password.RequireNonAlphanumeric = false;
 	options.Password.RequireUppercase = false;
 	options.Password.RequiredLength = 4;
 
 	// User settings.
 	options.User.RequireUniqueEmail = false;
+
+
+	options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 });
 var app = builder.Build();
 

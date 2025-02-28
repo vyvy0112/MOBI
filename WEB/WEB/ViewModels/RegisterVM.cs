@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WEB.ViewModels
 {
-	public class AppUserVM: IdentityUser
+	public class RegisterVM
 	{
+		//public int UserId { get; set; }
+
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Auto-increment
 		public int UserId { get; set; }
+
 
 		[Required(ErrorMessage = "UserName không được để trống")]
 		public string UserName { get; set; } = null!;
@@ -23,7 +27,5 @@ namespace WEB.ViewModels
 		[DataType(DataType.Password)]
 		[Required(ErrorMessage = "Mật khẩu không được để trống")]
 		public string Password { get; set; } = null!;
-
-		//public string? Role { get; set; }
 	}
 }

@@ -5,38 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|c:\\users\\asus\\desktop\\mobi\\web\\web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|solutionrelative:web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|c:\\users\\asus\\desktop\\mobi\\web\\web\\viewmodels\\appuservm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|solutionrelative:web\\viewmodels\\appuservm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|c:\\users\\asus\\desktop\\mobi\\web\\web\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|solutionrelative:web\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|c:\\users\\asus\\desktop\\mobi\\web\\web\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|solutionrelative:web\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|c:\\users\\asus\\desktop\\mobi\\web\\web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|solutionrelative:web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|c:\\users\\asus\\desktop\\mobi\\web\\web\\data\\quanlybanhangcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|solutionrelative:web\\data\\quanlybanhangcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|c:\\users\\asus\\desktop\\mobi\\web\\web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|solutionrelative:web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|c:\\users\\asus\\desktop\\mobi\\web\\web\\viewmodels\\loginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|solutionrelative:web\\viewmodels\\loginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|c:\\users\\asus\\desktop\\mobi\\web\\web\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7010DB8C-44B8-4706-BB46-8F45FB7F1B63}|WEB\\WEB.csproj|solutionrelative:web\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,33 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "WEB\\Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "WEB\\Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAUwCoAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T03:18:34.231Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppUserVM.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\ViewModels\\AppUserVM.cs",
-              "RelativeDocumentMoniker": "WEB\\ViewModels\\AppUserVM.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\ViewModels\\AppUserVM.cs",
-              "RelativeToolTip": "WEB\\ViewModels\\AppUserVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "WEB\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "WEB\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAtwE8AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T07:39:53.473Z",
+              "WhenOpened": "2025-02-27T01:07:40.953Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
@@ -83,96 +37,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "WEB\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "WEB\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAkwFIAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T01:07:40.953Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Program.cs",
-              "RelativeDocumentMoniker": "WEB\\Program.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Program.cs",
-              "RelativeToolTip": "WEB\\Program.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFUAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T08:01:03.508Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "WEB\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "WEB\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T08:00:46.598Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "QuanLyBanHangContext.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Data\\QuanLyBanHangContext.cs",
-              "RelativeDocumentMoniker": "WEB\\Data\\QuanLyBanHangContext.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Data\\QuanLyBanHangContext.cs",
-              "RelativeToolTip": "WEB\\Data\\QuanLyBanHangContext.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAIwFgAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T05:30:53.412Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WEB\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WEB\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAAAIAAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-26T14:33:14.377Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoginVM.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\ViewModels\\LoginVM.cs",
-              "RelativeDocumentMoniker": "WEB\\ViewModels\\LoginVM.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\ViewModels\\LoginVM.cs",
-              "RelativeToolTip": "WEB\\ViewModels\\LoginVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T06:55:28.184Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Views\\Cart\\Index.cshtml",
-              "RelativeDocumentMoniker": "WEB\\Views\\Cart\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\MOBI\\WEB\\WEB\\Views\\Cart\\Index.cshtml",
-              "RelativeToolTip": "WEB\\Views\\Cart\\Index.cshtml",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAAAFUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T01:06:40.638Z"
             }
           ]
         }

@@ -1,93 +1,95 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.CodeAnalysis.Scripting;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
+using System.Security.Claims;
 using WEB.Data;
+using WEB.Reponsitory;
 using WEB.ViewModels;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WEB.Controllers
 {
 	public class AccountController : Controller
 	{
-		private readonly UserManager<AppUserVM> _userManager;
-		private readonly SignInManager<AppUserVM> _signInManager;
-
-		QuanLyBanHangContext db = new QuanLyBanHangContext();
-
-		public AccountController(SignInManager<AppUserVM> signInManager, UserManager<AppUserVM> userManager)
+		private readonly QuanLyBanHangContext _db;
+		private readonly IMapper _mapper;
+		public AccountController(QuanLyBanHangContext context,IMapper mapper)
 		{
-			_signInManager = signInManager;
-			_userManager = userManager;
+			_db = context ;
+			_mapper = mapper;
 		}
 
-		//[HttpGet]		
-		
-		//public IActionResult Login()
-		//{
-		//	if(HttpContext.Session.GetString("UserName") == null)
-		//	{
-		//		return View();
-		//	}
-		//	else
-		//	{
-		//		return RedirectToAction("Index", "Product");
-		//	}
-		//}
-
-		//[HttpPost]
-		//public IActionResult Login(AppUserVM user)
-		//{
-		//	if (HttpContext.Session.GetString("UserName") == null)
-		//	{
-		//		var dl = db.Users.Where(x=>x.UserName.Equals(user.UserName) && 
-		//		x.Password.Equals(user.Password)).FirstOrDefault();
-		//		if(dl != null)
-		//		{
-		//			HttpContext.Session.SetString("UserName", dl.UserName.ToString());
-		//			return RedirectToAction("Index", "Product");
-		//		}
-		//	}
-		//	return View();
-		//}
-
-
-
-
-		public IActionResult Login()
+		#region Register
+		[HttpGet]
+		public IActionResult Register()
 		{
 			return View();
 		}
 
-
-		[HttpGet]		
-		public ActionResult Register()
-		{
-			return View();
-		}
 
 
 		[HttpPost]
-		public async Task<ActionResult> Register(AppUserVM user)
+		public IActionResult Register([Bind("UserName,Email,Password")] RegisterVM model)
 		{
 			if (ModelState.IsValid)
 			{
-				AppUserVM newUser = new AppUserVM { UserName = user.UserName, Email = user.Email };
-				IdentityResult result = await _userManager.CreateAsync(newUser, user.Password);
-				if (result.Succeeded)
+				var user = _mapper.Map<User>(model); //chuyển đổi sang entity AppUser
+				user.Password = model.Password.ToMd5Hash(); // mã hóa mật khẩu
+				_db.Users.Add(user);
+				_db.SaveChanges();
+				TempData["SuccessMessage"] = "Đăng ký thành công! Vui lòng đăng nhập.";
+				return RedirectToAction("Register","Account");
+			}
+			return View(model);
+		}
+
+		#endregion
+
+		#region Login
+		[HttpGet]		
+		public IActionResult Login(string? ReturnUrl)
+		{
+			ViewBag.ReturnUrl = ReturnUrl;
+			return View();
+		}
+		[HttpPost]
+		public IActionResult Login(LoginVM model, string? ReturnUrl) 
+		{
+			ViewBag.ReturnUrl = ReturnUrl;
+			if (ModelState.IsValid) 
+			{
+				var user = _db.Users.SingleOrDefault(us => us.UserName == us.UserName); //kiểm tra danh sách khách khàng us.UserID == us.UserName 
+				if (user == null)
 				{
-					TempData["success"] = "Tạo user thành công";
-					return Redirect("/account");
+					ModelState.AddModelError("Lỗi", "Không có user này ");
 				}
 				else
 				{
-					foreach (IdentityError error in result.Errors)
+					if (user.Password != model.Password)
 					{
-						ModelState.AddModelError("", error.Description);
-					}
-					return View(user);
-				}
-			}
-			return View(user);
+						ModelState.AddModelError("Lỗi", "Sai thông tin đăng nhập");
 
+					}
+					else
+					{
+						var claims = new List<Claim>
+						{
+							new Claim(ClaimTypes.Email,user.Email),
+							new Claim(ClaimTypes.Name,user.UserName),
+							//new Claim("UserId",user.UserId),
+						};
+					}
+				}
+					
+			}
+			return View();
 		}
+		
+
+		
+		#endregion
 	}
 }
